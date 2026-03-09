@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Realisations from "./pages/Realisations";
 import StudioPage from "./pages/Studio";
+import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
@@ -28,6 +29,7 @@ const AppRoutes = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/realisations" element={<Realisations />} />
         <Route path="/studio" element={<StudioPage />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

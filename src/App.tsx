@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Realisations from "./pages/Realisations";
 import StudioPage from "./pages/Studio";
+import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";

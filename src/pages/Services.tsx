@@ -1,7 +1,17 @@
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
+import { MotionSection, ScrollRevealWrapper } from "@/components/MotionSection";
+import { 
+  eyebrowVariants, 
+  headingVariants, 
+  textVariants, 
+  staggeredContainer, 
+  staggeredCard, 
+  ctaVariants 
+} from "@/utils/motion";
 
 const services = [
   {
@@ -46,60 +56,70 @@ const Services = () => (
     <title>Services — Pixora Studio Image & Digital</title>
     <meta name="description" content="Identité visuelle, photographie professionnelle, création de site internet, direction artistique. Pixora, studio créatif en Haute-Loire." />
 
-    <section className="section-padding pt-32 pb-20">
-      <ScrollReveal>
-        <span className="text-xs font-medium text-primary uppercase tracking-widest">Nos expertises</span>
-        <h1 className="font-heading text-5xl md:text-7xl font-bold text-foreground mt-4">
+    <MotionSection className="section-padding pt-32 pb-24">
+      <ScrollRevealWrapper variants={eyebrowVariants}>
+        <span className="text-sm font-semibold text-primary uppercase tracking-[0.2em]">Nos expertises</span>
+      </ScrollRevealWrapper>
+      <ScrollRevealWrapper variants={headingVariants}>
+        <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mt-5 tracking-tight">
           Des solutions<br />
           <span className="text-gradient-accent">sur mesure</span>
         </h1>
-        <p className="text-muted-foreground text-lg mt-6 max-w-2xl">
+      </ScrollRevealWrapper>
+      <ScrollRevealWrapper variants={textVariants}>
+        <p className="text-lg md:text-xl text-[hsl(0,0%,55%)] mt-8 max-w-2xl leading-relaxed">
           Chaque service est pensé pour répondre à un besoin précis et générer un impact mesurable sur votre activité.
         </p>
-      </ScrollReveal>
-    </section>
+      </ScrollRevealWrapper>
+    </MotionSection>
 
-    <section className="section-padding pb-32">
-      <div className="space-y-8">
+    <MotionSection className="section-padding pb-36 md:pb-44">
+      <motion.div 
+        className="space-y-10"
+        variants={staggeredContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-5%" }}
+      >
         {services.map((service, i) => (
-          <ScrollReveal key={i} direction={i % 2 === 0 ? "left" : "right"} delay={i * 0.05}>
-            <div className="card-glass p-8 md:p-12 group hover:border-primary/30 transition-all duration-500">
-              <div className="grid grid-cols-1 lg:grid-cols-[auto,1fr] gap-8 items-start">
-                <div className="text-4xl text-primary opacity-40 group-hover:opacity-100 transition-opacity">
+          <motion.div key={i} variants={staggeredCard}>
+            <div className="card-glass p-10 md:p-14 lg:p-16 group hover:border-primary/40 transition-all duration-500">
+              <div className="grid grid-cols-1 lg:grid-cols-[auto,1fr] gap-10 items-start">
+                <div className="text-5xl md:text-6xl text-primary opacity-30 group-hover:opacity-100 transition-opacity duration-500">
                   {service.icon}
                 </div>
                 <div>
-                  <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6">{service.title}</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 tracking-tight">{service.title}</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div>
-                      <h3 className="text-xs font-medium text-primary uppercase tracking-widest mb-2">Le problème</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{service.problem}</p>
+                      <h3 className="text-sm font-semibold text-primary uppercase tracking-[0.15em] mb-3">Le problème</h3>
+                      <p className="text-base text-[hsl(0,0%,55%)] leading-relaxed">{service.problem}</p>
                     </div>
                     <div>
-                      <h3 className="text-xs font-medium text-primary uppercase tracking-widest mb-2">Notre solution</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{service.solution}</p>
+                      <h3 className="text-sm font-semibold text-primary uppercase tracking-[0.15em] mb-3">Notre solution</h3>
+                      <p className="text-base text-[hsl(0,0%,55%)] leading-relaxed">{service.solution}</p>
                     </div>
                     <div>
-                      <h3 className="text-xs font-medium text-primary uppercase tracking-widest mb-2">Le bénéfice</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{service.benefit}</p>
+                      <h3 className="text-sm font-semibold text-primary uppercase tracking-[0.15em] mb-3">Le bénéfice</h3>
+                      <p className="text-base text-[hsl(0,0%,55%)] leading-relaxed">{service.benefit}</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </ScrollReveal>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      <ScrollReveal className="mt-16 text-center">
+      <ScrollRevealWrapper variants={ctaVariants}>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-sm hover:shadow-[var(--shadow-glow-strong)] transition-all duration-300"
+          className="inline-flex items-center gap-3 px-10 py-5 bg-primary text-primary-foreground font-semibold text-lg rounded-sm hover:shadow-[0_0_50px_hsl(75,100%,50%,0.3)] transition-all duration-300"
         >
-          Discuter de votre projet <ArrowRight size={18} />
+          Discuter de votre projet <ArrowRight size={20} />
         </Link>
-      </ScrollReveal>
-    </section>
+      </ScrollRevealWrapper>
+    </MotionSection>
   </Layout>
 );
 

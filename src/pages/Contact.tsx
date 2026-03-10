@@ -42,21 +42,21 @@ const Contact = () => {
     }, 1500);
   };
 
-  const inputClass = "w-full bg-card border border-border rounded-sm px-4 py-3 text-foreground placeholder:text-text-tertiary focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all text-sm";
+  const inputClass = "w-full bg-[hsl(240,10%,8%)] border border-border/70 rounded-lg px-5 py-4 text-foreground placeholder:text-[hsl(0,0%,40%)] focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all text-base leading-relaxed";
 
   return (
     <Layout>
       <title>Contact — Pixora Studio Image & Digital</title>
       <meta name="description" content="Contactez Pixora pour discuter de votre projet image et digital. Studio créatif en Haute-Loire, identité visuelle, photographie, site internet." />
 
-      <section className="section-padding pt-32 pb-20">
+      <section className="section-padding pt-32 pb-24">
         <ScrollReveal>
-          <span className="text-xs font-medium text-primary uppercase tracking-widest">Contact</span>
-          <h1 className="font-heading text-5xl md:text-7xl font-bold text-foreground mt-4">
+          <span className="text-sm font-semibold text-primary uppercase tracking-[0.2em]">Contact</span>
+          <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mt-5 tracking-tight">
             Parlons de<br />
             <span className="text-gradient-accent">votre projet</span>
           </h1>
-          <p className="text-muted-foreground text-lg mt-6 max-w-2xl">
+          <p className="text-lg md:text-xl text-[hsl(0,0%,55%)] mt-8 max-w-2xl leading-relaxed">
             Chaque projet commence par une conversation. Décrivez-nous votre besoin
             et nous vous proposerons la meilleure approche.
           </p>
@@ -66,36 +66,36 @@ const Contact = () => {
       <section className="section-padding pb-32">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr,1.2fr] gap-16">
           <ScrollReveal direction="left">
-            <div className="space-y-8">
+            <div className="space-y-10">
               <div>
-                <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Comment ça marche ?</h2>
-                <div className="space-y-4">
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6 tracking-tight">Comment ça marche ?</h2>
+                <div className="space-y-5">
                   {[
                     "Vous remplissez le formulaire ci-contre.",
                     "Nous vous recontactons sous 24h.",
                     "Nous échangeons sur votre projet et vos objectifs.",
                     "Nous vous envoyons une proposition personnalisée.",
                   ].map((step, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <span className="text-primary font-heading font-bold text-sm mt-0.5">0{i + 1}</span>
-                      <p className="text-sm text-muted-foreground">{step}</p>
+                    <div key={i} className="flex items-start gap-4">
+                      <span className="text-primary font-heading font-bold text-base mt-0.5">0{i + 1}</span>
+                      <p className="text-base text-[hsl(0,0%,60%)] leading-relaxed">{step}</p>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="glow-line" />
+              <div className="h-px bg-gradient-to-r from-border via-border/50 to-transparent" />
               <div>
-                <p className="text-sm text-muted-foreground">Haute-Loire, France</p>
-                <p className="text-sm text-muted-foreground mt-1">contact@pixora.fr</p>
+                <p className="text-base text-[hsl(0,0%,55%)]">Haute-Loire, France</p>
+                <p className="text-base text-[hsl(0,0%,55%)] mt-2">contact@pixora.fr</p>
               </div>
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="right">
-            <form onSubmit={handleSubmit} className="card-glass p-8 md:p-10 space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="card-glass p-10 md:p-12 space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <label className="text-xs font-medium text-text-secondary uppercase tracking-widest mb-2 block">Nom *</label>
+                  <label className="text-sm font-semibold text-[hsl(0,0%,65%)] uppercase tracking-[0.1em] mb-3 block">Nom *</label>
                   <input
                     type="text"
                     value={form.nom}
@@ -103,10 +103,10 @@ const Contact = () => {
                     className={inputClass}
                     placeholder="Jean Dupont"
                   />
-                  {errors.nom && <p className="text-xs text-destructive mt-1">{errors.nom}</p>}
+                  {errors.nom && <p className="text-sm text-destructive mt-2">{errors.nom}</p>}
                 </div>
                 <div>
-                  <label className="text-xs font-medium text-text-secondary uppercase tracking-widest mb-2 block">Entreprise</label>
+                  <label className="text-sm font-semibold text-[hsl(0,0%,65%)] uppercase tracking-[0.1em] mb-3 block">Entreprise</label>
                   <input
                     type="text"
                     value={form.entreprise}
@@ -116,9 +116,9 @@ const Contact = () => {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <label className="text-xs font-medium text-text-secondary uppercase tracking-widest mb-2 block">Email *</label>
+                  <label className="text-sm font-semibold text-[hsl(0,0%,65%)] uppercase tracking-[0.1em] mb-3 block">Email *</label>
                   <input
                     type="email"
                     value={form.email}
@@ -126,10 +126,10 @@ const Contact = () => {
                     className={inputClass}
                     placeholder="jean@entreprise.fr"
                   />
-                  {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
+                  {errors.email && <p className="text-sm text-destructive mt-2">{errors.email}</p>}
                 </div>
                 <div>
-                  <label className="text-xs font-medium text-text-secondary uppercase tracking-widest mb-2 block">Téléphone</label>
+                  <label className="text-sm font-semibold text-[hsl(0,0%,65%)] uppercase tracking-[0.1em] mb-3 block">Téléphone</label>
                   <input
                     type="tel"
                     value={form.telephone}
@@ -140,7 +140,7 @@ const Contact = () => {
                 </div>
               </div>
               <div>
-                <label className="text-xs font-medium text-text-secondary uppercase tracking-widest mb-2 block">Message *</label>
+                <label className="text-sm font-semibold text-[hsl(0,0%,65%)] uppercase tracking-[0.1em] mb-3 block">Message *</label>
                 <textarea
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
@@ -148,15 +148,15 @@ const Contact = () => {
                   className={inputClass + " resize-none"}
                   placeholder="Décrivez votre projet, vos besoins et vos objectifs..."
                 />
-                {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
+                {errors.message && <p className="text-sm text-destructive mt-2">{errors.message}</p>}
               </div>
               <button
                 type="submit"
                 disabled={sending}
-                className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-sm hover:shadow-[var(--shadow-glow-strong)] transition-all duration-300 disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-3 px-10 py-5 bg-primary text-primary-foreground font-semibold text-lg rounded-sm hover:shadow-[0_0_50px_hsl(75,100%,50%,0.3)] transition-all duration-300 disabled:opacity-50"
               >
                 {sending ? "Envoi en cours..." : (
-                  <>Envoyer le message <Send size={16} /></>
+                  <>Envoyer le message <Send size={18} /></>
                 )}
               </button>
             </form>

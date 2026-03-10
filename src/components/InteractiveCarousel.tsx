@@ -22,17 +22,17 @@ const InteractiveCarousel = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
 
-  const cardWidth = 380;
-  const gap = 24;
+  const cardWidth = 420;
+  const gap = 32;
   const totalWidth = items.length * (cardWidth + gap);
 
   return (
-    <section className="py-32 overflow-hidden">
-      <div className="section-padding mb-12">
-        <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground">
+    <section className="py-36 md:py-44 overflow-hidden">
+      <div className="section-padding mb-16">
+        <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight">
           Nos réalisations<span className="text-primary">.</span>
         </h2>
-        <p className="text-muted-foreground mt-4 max-w-lg">
+        <p className="text-lg md:text-xl text-[hsl(0,0%,55%)] mt-5 max-w-lg">
           Glissez pour explorer nos projets récents.
         </p>
       </div>
@@ -63,9 +63,9 @@ const InteractiveCarousel = () => {
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                <span className="text-xs font-medium text-primary uppercase tracking-widest">{item.category}</span>
-                <h3 className="font-heading text-xl font-semibold text-foreground mt-1">{item.title}</h3>
+              <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                <span className="text-sm font-semibold text-primary uppercase tracking-[0.15em]">{item.category}</span>
+                <h3 className="font-heading text-2xl md:text-3xl font-semibold text-foreground mt-2 tracking-tight">{item.title}</h3>
               </div>
             </div>
           </motion.div>

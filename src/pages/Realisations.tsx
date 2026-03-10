@@ -59,39 +59,39 @@ const Realisations = () => (
     <title>Réalisations — Pixora Studio Image & Digital</title>
     <meta name="description" content="Découvrez les projets réalisés par Pixora : photographie professionnelle, identité visuelle, branding, sites internet pour PME et entreprises en Haute-Loire." />
 
-    <section className="section-padding pt-32 pb-20">
+    <section className="section-padding pt-32 pb-24">
       <ScrollReveal>
-        <span className="text-xs font-medium text-primary uppercase tracking-widest">Portfolio</span>
-        <h1 className="font-heading text-5xl md:text-7xl font-bold text-foreground mt-4">
+        <span className="text-sm font-semibold text-primary uppercase tracking-[0.2em]">Portfolio</span>
+        <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mt-5 tracking-tight">
           Nos<br />
           <span className="text-gradient-accent">réalisations</span>
         </h1>
-        <p className="text-muted-foreground text-lg mt-6 max-w-2xl">
+        <p className="text-lg md:text-xl text-[hsl(0,0%,55%)] mt-8 max-w-2xl leading-relaxed">
           Chaque projet est une collaboration unique. Découvrez comment nous avons aidé nos clients
           à transformer leur image.
         </p>
       </ScrollReveal>
     </section>
 
-    <section className="section-padding pb-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section className="section-padding pb-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {projects.map((project, i) => (
           <ScrollReveal key={i} direction={i % 2 === 0 ? "left" : "right"} delay={i * 0.05}>
             <div className="group">
-              <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-6">
+              <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-8 shadow-2xl shadow-black/50">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
               </div>
-              <span className="text-xs font-medium text-primary uppercase tracking-widest">{project.category}</span>
-              <h2 className="font-heading text-2xl font-bold text-foreground mt-2 mb-3">{project.title}</h2>
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground"><span className="text-text-secondary font-medium">Contexte :</span> {project.context}</p>
-                <p className="text-sm text-muted-foreground"><span className="text-text-secondary font-medium">Solution :</span> {project.solution}</p>
+              <span className="text-sm font-semibold text-primary uppercase tracking-[0.15em]">{project.category}</span>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-3 mb-5 tracking-tight">{project.title}</h2>
+              <div className="space-y-3">
+                <p className="text-base text-[hsl(0,0%,55%)] leading-relaxed"><span className="text-[hsl(0,0%,70%)] font-medium">Contexte :</span> {project.context}</p>
+                <p className="text-base text-[hsl(0,0%,55%)] leading-relaxed"><span className="text-[hsl(0,0%,70%)] font-medium">Solution :</span> {project.solution}</p>
               </div>
             </div>
           </ScrollReveal>

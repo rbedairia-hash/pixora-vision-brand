@@ -1,0 +1,100 @@
+/* Premium transition system for Pixora website */
+/* Consistent, elegant, and refined interaction states */
+
+/* Base transition timing */
+:root {
+  --transition-fast: 0.3s;
+  --transition-standard: 0.5s;
+  --transition-slow: 0.7s;
+  
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-refined: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-subtle: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card hover transitions */
+.card-glass {
+  transition: 
+    transform var(--transition-standard) var(--ease-smooth),
+    box-shadow var(--transition-standard) var(--ease-smooth),
+    border-color var(--transition-standard) var(--ease-smooth),
+    background var(--transition-fast) var(--ease-refined);
+}
+
+.card-glass:hover {
+  transform: translateY(-4px);
+}
+
+/* Interactive elements */
+.interactive-element {
+  transition: 
+    transform var(--transition-fast) var(--ease-refined),
+    opacity var(--transition-fast) var(--ease-refined),
+    color var(--transition-fast) var(--ease-refined);
+}
+
+.interactive-element:hover {
+  transform: translateY(-2px);
+}
+
+/* Primary button transitions */
+.btn-primary {
+  transition: 
+    transform var(--transition-fast) var(--ease-refined),
+    box-shadow var(--transition-standard) var(--ease-smooth),
+    background var(--transition-fast) var(--ease-refined);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Image hover transitions */
+.image-container {
+  transition: transform var(--transition-slow) var(--ease-smooth);
+}
+
+.image-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Text link transitions */
+.text-link {
+  transition: 
+    color var(--transition-fast) var(--ease-refined),
+    transform var(--transition-fast) var(--ease-refined);
+}
+
+.text-link:hover {
+  transform: translateX(4px);
+}
+
+/* Glow effects transitions */
+.glow-effect {
+  transition: 
+    box-shadow var(--transition-standard) var(--ease-smooth),
+    filter var(--transition-standard) var(--ease-smooth);
+}
+
+/* Icon transitions */
+.icon-transition {
+  transition: 
+    transform var(--transition-fast) var(--ease-refined),
+    color var(--transition-fast) var(--ease-refined);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Eye } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
 import InteractiveCarousel from "@/components/InteractiveCarousel";
-import heroBg from "@/assets/images/hero/hero-bg.jpg";
+import Hero from "@/components/Hero";
 import cosmetic01 from "@/assets/images/packshots/cosmetic-01.jpg";
 import imprimerie from "@/assets/images/imprimerie/imprimerie-01.jpg";
 import abstract01 from "@/assets/images/branding/abstract-01.jpg";
@@ -31,86 +31,8 @@ const Index = () => {
       <title>Pixora — Studio Image & Digital | Haute-Loire</title>
       <meta name="description" content="Pixora, studio image et digital en Haute-Loire. Identité visuelle, photographie professionnelle, création de site internet. Transformez votre image en levier de croissance." />
 
-      {/* HERO */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <img src={heroBg} alt="Studio créatif Pixora" className="w-full h-full object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
-        </div>
-
-        {/* Glow effect */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] animate-glow-pulse" />
-
-        <div className="relative section-padding pt-32 pb-20 w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-4xl"
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="glow-dot" />
-              <span className="text-sm font-medium text-primary tracking-widest uppercase">Studio Image & Digital</span>
-            </div>
-
-            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight">
-              <span className="text-gradient">Transformez</span>
-              <br />
-              <span className="text-foreground">votre image en</span>
-              <br />
-              <span className="text-gradient-accent">levier de croissance</span>
-            </h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
-              className="text-muted-foreground text-lg md:text-xl mt-8 max-w-2xl leading-relaxed"
-            >
-              Pixora aide les entreprises à renforcer leur crédibilité, structurer leur communication
-              et transformer leur présence visuelle en outil de croissance.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.7 }}
-              className="flex flex-wrap gap-4 mt-10"
-            >
-              <Link
-                to="/contact"
-                className="group px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-sm hover:shadow-[var(--shadow-glow-strong)] transition-all duration-300 flex items-center gap-2"
-              >
-                Démarrer mon projet
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                to="/studio"
-                className="px-8 py-4 border border-border text-foreground font-medium rounded-sm hover:border-primary/50 hover:text-primary transition-all duration-300 flex items-center gap-2"
-              >
-                <Eye size={18} />
-                Découvrir notre méthode
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <span className="text-xs text-text-tertiary uppercase tracking-widest">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-            className="w-px h-8 bg-gradient-to-b from-primary/60 to-transparent"
-          />
-        </motion.div>
-      </section>
+      {/* HERO - Premium Cinematic */}
+      <Hero />
 
       {/* STATS */}
       <section className="section-padding py-20 border-y border-border/20">
